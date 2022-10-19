@@ -19,3 +19,35 @@
     }
   }
 }
+
+.square {
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+}
+
+.color {
+  &.blue {
+    background-color: #0d6efd;
+  }
+
+  &.red {
+    background-color: #dc3545;
+  }
+
+  &.yellow {
+    background-color: #ffc107;
+  }
+
+  &.orange {
+    background-color: #fd7e14;
+  }
+
+  &.purple {
+    background-color: #6f42c1;
+  }
+
+  &.green {
+    background-color: #198754;
+  }
+}

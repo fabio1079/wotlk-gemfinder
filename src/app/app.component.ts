@@ -58,6 +58,33 @@ export class AppComponent {
     return values.join(' and ');
   }
 
+  getSquareColor(color: Color) {
+    let _color = ['square', 'color'];
+
+    switch (color) {
+      case Color.red:
+        _color.push('red');
+        break;
+      case Color.blue:
+        _color.push('blue');
+        break;
+      case Color.yellow:
+        _color.push('yellow');
+        break;
+      case Color.orange:
+        _color.push('orange');
+        break;
+      case Color.purple:
+        _color.push('purple');
+        break;
+      case Color.green:
+        _color.push('green');
+        break;
+    }
+
+    return _color;
+  }
+
   toggleEffect(effect: Effect) {
     if (this.selectedEffects.has(effect)) {
       this.selectedEffects.delete(effect);

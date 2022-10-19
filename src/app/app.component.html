@@ -77,6 +77,7 @@
       <table class="table table-striped">
         <thead>
           <tr>
+            <th scope="col">Color</th>
             <th scope="col">Name</th>
             <th scope="col">Effect</th>
             <th scope="col">Where to get</th>
@@ -84,6 +85,9 @@
         </thead>
         <tbody>
           <tr *ngFor="let gem of gems">
+            <td>
+              <div [ngClass]="getSquareColor(gem.color)"></div>
+            </td>
             <td>{{ gem.name }}</td>
             <td>{{ getStatsEffect(gem.stats) }}</td>
             <td>{{ gem.source }}</td>
