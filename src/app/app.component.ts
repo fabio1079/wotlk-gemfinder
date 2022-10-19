@@ -65,7 +65,11 @@ export class AppComponent {
       this.selectedEffects.add(effect);
     }
 
-    console.log(this.selectedEffects);
+    this.gemsService.filterGems(
+      this.selectedEffects,
+      this.selectedColors,
+      this.selectedQualities
+    );
   }
 
   toggleColor(color: Color) {
@@ -75,7 +79,11 @@ export class AppComponent {
       this.selectedColors.add(color);
     }
 
-    console.log(this.selectedColors);
+    this.gemsService.filterGems(
+      this.selectedEffects,
+      this.selectedColors,
+      this.selectedQualities
+    );
   }
 
   toggleQuality(quality: Quality) {
@@ -85,6 +93,10 @@ export class AppComponent {
       this.selectedQualities.add(quality);
     }
 
-    console.log(this.selectedQualities);
+    this.gemsService.filterGems(
+      this.selectedEffects,
+      this.selectedColors,
+      this.selectedQualities
+    );
   }
 }
