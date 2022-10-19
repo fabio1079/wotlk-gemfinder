@@ -21,19 +21,19 @@ export enum Effect {
 }
 
 export enum Color {
-  red = 'red',
-  blue = 'blue',
-  yellow = 'yellow',
-  orange = 'orange',
-  purple = 'purple',
-  green = 'green',
+  red = 'Red',
+  blue = 'Blue',
+  yellow = 'Yellow',
+  orange = 'Orange(Red/Yellow) ',
+  purple = 'Purple(Red/Blue) ',
+  green = 'Green(Blue/Yellow) ',
 }
 
 export enum Quality {
-  uncommon = 'uncommon',
-  perfect = 'perfect',
-  rare = 'rare',
-  epic = 'epic',
+  uncommon = 'Uncommon ',
+  perfect = 'Perfect Uncommon',
+  rare = 'Rare',
+  epic = 'Epic',
 }
 
 export type Stats = {

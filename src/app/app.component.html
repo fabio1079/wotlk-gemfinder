@@ -15,89 +15,15 @@
             <legend>Player effect</legend>
 
             <ul class="list-group list-group-flush">
-              <li class="list-group-item">
-                <input type="checkbox" id="player-effect-strength" />
-                <label for="player-effect-strength"> Strength </label>
-              </li>
-
-              <li class="list-group-item">
-                <input type="checkbox" id="player-effect-intellect" />
-                <label for="player-effect-intellect"> Intellect </label>
-              </li>
-
-              <li class="list-group-item">
-                <input type="checkbox" id="player-effect-agility" />
-                <label for="player-effect-agility"> Agility </label>
-              </li>
-
-              <li class="list-group-item">
-                <input type="checkbox" id="player-effect-critical" />
-                <label for="player-effect-critical"> Critical strike </label>
-              </li>
-
-              <li class="list-group-item">
-                <input type="checkbox" id="player-effect-spirit" />
-                <label for="player-effect-spirit"> Spirit </label>
-              </li>
-
-              <li class="list-group-item">
-                <input type="checkbox" id="player-effect-haste" />
-                <label for="player-effect-haste"> Haste </label>
-              </li>
-
-              <li class="list-group-item">
-                <input type="checkbox" id="player-effect-spellpower" />
-                <label for="player-effect-spellpower"> Spell power </label>
-              </li>
-
-              <li class="list-group-item">
-                <input type="checkbox" id="player-effect-attackpower" />
-                <label for="player-effect-attackpower"> Attack power </label>
-              </li>
-
-              <li class="list-group-item">
-                <input type="checkbox" id="player-effect-mp5" />
-                <label for="player-effect-mp5"> Mana regeneration </label>
-              </li>
-
-              <li class="list-group-item">
-                <input type="checkbox" id="player-effect-defense" />
-                <label for="player-effect-defense"> Defense </label>
-              </li>
-
-              <li class="list-group-item">
-                <input type="checkbox" id="player-effect-block" />
-                <label for="player-effect-block"> Block </label>
-              </li>
-
-              <li class="list-group-item">
-                <input type="checkbox" id="player-effect-parry" />
-                <label for="player-effect-parry"> Parry </label>
-              </li>
-
-              <li class="list-group-item">
-                <input type="checkbox" id="player-effect-dodge" />
-                <label for="player-effect-dodge"> Dodge </label>
-              </li>
-
-              <li class="list-group-item">
-                <input type="checkbox" id="player-effect-stamina" />
-                <label for="player-effect-stamina"> Stamina </label>
-              </li>
-
-              <li class="list-group-item">
-                <input type="checkbox" id="player-effect-spellpen" />
-                <label for="player-effect-spellpen"> Spell Pen </label>
-              </li>
-
-              <li class="list-group-item">
-                <input type="checkbox" id="player-effect-armpen" />
-                <label for="player-effect-armpen"> Armor Pen </label>
-              </li>
-
-              <li class="list-group-item">
-                <input type="checkbox" id="player-effect-resilience" />
-                <label for="player-effect-resilience"> Resilience </label>
+              <li *ngFor="let effect of effects" class="list-group-item">
+                <input
+                  type="checkbox"
+                  [id]="effect.name"
+                  [value]="effect.value"
+                  [checked]="selectedEffects.has(effect.value)"
+                  (change)="toggleEffect(effect.value)"
+                />
+                <label [for]="effect.name"> {{ effect.value }} </label>
               </li>
             </ul>
           </fieldset>
@@ -109,34 +35,15 @@
             <legend>Color</legend>
 
             <ul class="list-group list-group-flush">
-              <li class="list-group-item">
-                <input type="checkbox" id="color-red" />
-                <label for="color-red"> Red </label>
-              </li>
-
-              <li class="list-group-item">
-                <input type="checkbox" id="color-blue" />
-                <label for="color-blue"> Blue </label>
-              </li>
-
-              <li class="list-group-item">
-                <input type="checkbox" id="color-yellow" />
-                <label for="color-yellow"> Yellow </label>
-              </li>
-
-              <li class="list-group-item">
-                <input type="checkbox" id="color-orange" />
-                <label for="color-orange"> Orange(Red/Yellow) </label>
-              </li>
-
-              <li class="list-group-item">
-                <input type="checkbox" id="color-purple" />
-                <label for="color-purple"> Purple(Red/Blue) </label>
-              </li>
-
-              <li class="list-group-item">
-                <input type="checkbox" id="color-green" />
-                <label for="color-green"> Green(Blue/Yellow) </label>
+              <li *ngFor="let color of colors" class="list-group-item">
+                <input
+                  type="checkbox"
+                  [id]="color.name"
+                  [value]="color.value"
+                  [checked]="selectedColors.has(color.value)"
+                  (change)="toggleColor(color.value)"
+                />
+                <label [for]="color.name"> {{ color.value }} </label>
               </li>
             </ul>
           </fieldset>
@@ -148,29 +55,15 @@
             <legend>Quality</legend>
 
             <ul class="list-group list-group-flush">
-              <li class="list-group-item">
-                <input type="checkbox" id="quality-red" />
-                <label for="quality-red"> Red </label>
-              </li>
-
-              <li class="list-group-item">
-                <input type="checkbox" id="quality-uncommon" />
-                <label for="quality-uncommon"> Uncommon </label>
-              </li>
-
-              <li class="list-group-item">
-                <input type="checkbox" id="quality-perfect" />
-                <label for="quality-perfect"> Perfect uncommon </label>
-              </li>
-
-              <li class="list-group-item">
-                <input type="checkbox" id="quality-rare" />
-                <label for="quality-rare"> Rare </label>
-              </li>
-
-              <li class="list-group-item">
-                <input type="checkbox" id="quality-epic" />
-                <label for="quality-epic"> Epic </label>
+              <li *ngFor="let quality of qualities" class="list-group-item">
+                <input
+                  type="checkbox"
+                  [id]="quality.name"
+                  [value]="quality.value"
+                  [checked]="selectedQualities.has(quality.value)"
+                  (change)="toggleQuality(quality.value)"
+                />
+                <label [for]="quality.name"> {{ quality.value }} </label>
               </li>
             </ul>
           </fieldset>
