@@ -1,4 +1,10 @@
+.row-header {
+  margin: 1rem;
+}
+
 .left-side {
+  margin-right: 1rem;
+
   .checkbox-col {
     margin-bottom: 1.5rem;
 
@@ -12,7 +18,4 @@
       }
     }
   }
-}
-
-.right-side {
 }

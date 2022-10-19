@@ -16,7 +16,7 @@ export class AppComponent {
 
   constructor(private gemsService: GemsService) {
     this.gemsService.getGems().subscribe((data) => {
-      this.gems = [...data];
+      this.gems = data;
     });
   }
 
