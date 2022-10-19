@@ -3,7 +3,7 @@
     <div class="col text-center">
       <h1>World of Warcraft Gem Browser (WotLK 3.3.5)</h1>
 
-      Gems shown: 296
+      Gems shown: {{ gems.length }}
     </div>
   </div>
 
@@ -190,25 +190,10 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Delicate Bloodstone</td>
-            <td>+12 Agility</td>
-            <td>Trainer</td>
-          </tr>
-          <tr>
-            <td>Runed Bloodstone</td>
-            <td>+14 Spell Power</td>
-            <td>Trainer</td>
-          </tr>
-          <tr>
-            <td>Perfect Delicate Bloodstone</td>
-            <td>+14 Agility</td>
-            <td>Gem Perfection</td>
-          </tr>
-          <tr>
-            <td>Delicate Stormjewel</td>
-            <td>+20 Agility</td>
-            <td>Bag of Fishing Treasures</td>
+          <tr *ngFor="let gem of gems">
+            <td>{{ gem.name }}</td>
+            <td>{{ getStatsEffect(gem.stats) }}</td>
+            <td>{{ gem.source }}</td>
           </tr>
         </tbody>
       </table>
