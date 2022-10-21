@@ -8,12 +8,18 @@
   .checkbox-col {
     margin-bottom: 1.5rem;
 
-    fieldset ul li {
-      label {
-        cursor: pointer;
+    label {
+      margin-left: 0.25rem;
+      cursor: pointer;
+    }
+
+    fieldset {
+      legend small {
+        margin-left: 1rem;
+        font-size: 12px;
       }
 
-      input {
+      ul li input {
         margin-right: 0.5rem;
       }
     }

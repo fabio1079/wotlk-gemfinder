@@ -12,7 +12,18 @@
       <div class="row">
         <div class="col checkbox-col border">
           <fieldset>
-            <legend>Player effect</legend>
+            <legend>
+              Player effect
+              <small>
+                <input
+                  type="checkbox"
+                  id="effect-have-all"
+                  [checked]="haveAllSelectedEffects"
+                  (change)="toggleHaveAllEffects()"
+                />
+                <label for="effect-have-all">Have all selected</label>
+              </small>
+            </legend>
 
             <ul class="list-group list-group-flush">
               <li *ngFor="let effect of effects" class="list-group-item">

@@ -10,6 +10,7 @@ import { GemsService } from './gems.service';
 })
 export class AppComponent {
   gems: GemData[] = [];
+  haveAllSelectedEffects: boolean = false;
   selectedEffects: Set<Effect> = new Set();
   selectedColors: Set<Color> = new Set();
   selectedQualities: Set<Quality> = new Set();
@@ -92,11 +93,7 @@ export class AppComponent {
       this.selectedEffects.add(effect);
     }
 
-    this.gemsService.filterGems(
-      this.selectedEffects,
-      this.selectedColors,
-      this.selectedQualities
-    );
+    this.triggerFilter();
   }
 
   toggleColor(color: Color) {
@@ -106,11 +103,7 @@ export class AppComponent {
       this.selectedColors.add(color);
     }
 
-    this.gemsService.filterGems(
-      this.selectedEffects,
-      this.selectedColors,
-      this.selectedQualities
-    );
+    this.triggerFilter();
   }
 
   toggleQuality(quality: Quality) {
@@ -120,7 +113,17 @@ export class AppComponent {
       this.selectedQualities.add(quality);
     }
 
+    this.triggerFilter();
+  }
+
+  toggleHaveAllEffects() {
+    this.haveAllSelectedEffects = !this.haveAllSelectedEffects;
+    this.triggerFilter();
+  }
+
+  private triggerFilter() {
     this.gemsService.filterGems(
+      this.haveAllSelectedEffects,
       this.selectedEffects,
       this.selectedColors,
       this.selectedQualities
