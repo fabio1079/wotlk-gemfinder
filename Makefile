@@ -5,4 +5,4 @@ build:
 	pnpm build
 
 deploy:
-	ng deploy --base-href=/wotlk-gemfinder/
+	pnpm run deploy
