@@ -1,32 +1,35 @@
-<div class="container">
-  <div class="row row-header">
-    <div class="col text-center">
-      <h1>World of Warcraft Gem Browser (WotLK 3.3.5)</h1>
+<div class="w-full p-4">
+  <div class="flex w-full justify-center">
+    <div class="text-center">
+      <h1 class="text-2xl font-bold">World of Warcraft Gem Browser (WotLK 3.3.5)</h1>
 
       Gems shown: <strong>{{ gems.length }}</strong>
     </div>
   </div>
 
-  <div class="row">
-    <div class="col col-2 left-side">
-      <div class="row">
-        <div class="col checkbox-col border">
+  <div class="flex w-full mt-4 justify-center">
+    <div class="w-56">
+        <div class="border border-slate-300 border-collapse p-2">
           <fieldset>
             <legend>
               Player effect
+              <br />
               <small>
                 <input
                   type="checkbox"
                   id="effect-have-all"
                   [checked]="haveAllSelectedEffects"
                   (change)="toggleHaveAllEffects()"
+                  class="mr-1"
                 />
-                <label for="effect-have-all">Have all selected</label>
+                <label for="effect-have-all">Combine selected options</label>
               </small>
             </legend>
 
-            <ul class="list-group list-group-flush">
-              <li *ngFor="let effect of effects" class="list-group-item">
+            <hr />
+
+            <ul class="mt-4">
+              <li *ngFor="let effect of effects" class="list-item mt-1">
                 <input
                   type="checkbox"
                   [id]="effect.name"
@@ -34,19 +37,19 @@
                   [checked]="selectedEffects.has(effect.value)"
                   (change)="toggleEffect(effect.value)"
                 />
-                <label [for]="effect.name"> {{ effect.value }} </label>
+                <label class="ml-1" [for]="effect.name"> {{ effect.value }} </label>
               </li>
             </ul>
           </fieldset>
         </div>
         <!-- /checkbox-col -->
 
-        <div class="col checkbox-col border">
+        <div class="border border-slate-300 border-collapse p-2 mt-4">
           <fieldset>
             <legend>Color</legend>
 
-            <ul class="list-group list-group-flush">
-              <li *ngFor="let color of colors" class="list-group-item">
+            <ul class="mt-4">
+              <li *ngFor="let color of colors" class="list-item mt-1">
                 <input
                   type="checkbox"
                   [id]="color.name"
@@ -54,14 +57,14 @@
                   [checked]="selectedColors.has(color.value)"
                   (change)="toggleColor(color.value)"
                 />
-                <label [for]="color.name"> {{ color.value }} </label>
+                <label class="ml-1" [for]="color.name"> {{ color.value }} </label>
               </li>
             </ul>
           </fieldset>
         </div>
         <!-- /checkbox-col -->
 
-        <div class="col checkbox-col border">
+        <div class="border border-slate-300 border-collapse p-2 mt-4">
           <fieldset>
             <legend>Quality</legend>
 
@@ -74,34 +77,34 @@
                   [checked]="selectedQualities.has(quality.value)"
                   (change)="toggleQuality(quality.value)"
                 />
-                <label [for]="quality.name"> {{ quality.value }} </label>
+                <label class="ml-1" [for]="quality.name"> {{ quality.value }} </label>
               </li>
             </ul>
           </fieldset>
         </div>
         <!-- /checkbox-col -->
-      </div>
     </div>
     <!-- /left-side-->
 
-    <div class="col col-8 right-side border">
-      <table class="table table-striped">
+    <div class="w-3/5 ml-4 border border-slate-300 border-collapse p-4">
+      <table class="table-auto w-full">
         <thead>
           <tr>
-            <th scope="col">Color</th>
-            <th scope="col">Name</th>
-            <th scope="col">Effect</th>
-            <th scope="col">Where to get</th>
+            <th class="p-1 text-left">Color</th>
+            <th class="p-1 text-left">Name</th>
+            <th class="p-1 text-left">Effect</th>
+            <th class="p-1 text-left">Where to get</th>
           </tr>
         </thead>
+
         <tbody>
-          <tr *ngFor="let gem of gems">
-            <td>
+          <tr *ngFor="let gem of gems" class="even:bg-slate-100 odd:bg-white">
+            <td class="p-2">
               <div [ngClass]="getSquareColor(gem.color)"></div>
             </td>
-            <td>{{ gem.name }}</td>
-            <td>{{ getStatsEffect(gem.stats) }}</td>
-            <td>{{ gem.source }}</td>
+            <td class="p-2">{{ gem.name }}</td>
+            <td class="p-2">{{ getStatsEffect(gem.stats) }}</td>
+            <td class="p-2">{{ gem.source }}</td>
           </tr>
         </tbody>
       </table>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { GemData, Stats, Color, Effect, Quality } from './gems-database';
 import { GemsService } from './gems.service';
@@ -8,7 +8,7 @@ import { GemsService } from './gems.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   gems: GemData[] = [];
   haveAllSelectedEffects: boolean = false;
   selectedEffects: Set<Effect> = new Set();
@@ -19,6 +19,11 @@ export class AppComponent {
     this.gemsService.getGems().subscribe((data) => {
       this.gems = data;
     });
+  }
+
+  ngOnInit(): void {
+    this.selectedQualities.add(Quality.epic);
+    this.triggerFilter();
   }
 
   get effects() {
