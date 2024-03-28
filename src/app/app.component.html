@@ -98,7 +98,7 @@
         </thead>
 
         <tbody>
-          <tr *ngFor="let gem of gems" class="even:bg-slate-100 odd:bg-white">
+          <tr *ngFor="let gem of gems" class="odd:bg-slate-100 even:bg-white">
             <td class="p-2">
               <div [ngClass]="getSquareColor(gem.color)"></div>
             </td>
